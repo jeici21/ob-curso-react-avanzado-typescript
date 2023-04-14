@@ -2,12 +2,12 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import useList from '../../hooks/useList';
 
 const TaskList = () => {
-    const [newTask, setNewTask] = useState<string>('');
-    const [tasks,, push, remove, isEmpty, clear, sort, reverse] = useList<string>([]);
+    const [newTask, setNewTask] = useState('');
+    const [tasks,, push, remove, isEmpty, clear, sort, reverse] = useList([]);
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        push(newTask);
+        push(newTask as never);
         setNewTask('');
     };
 
