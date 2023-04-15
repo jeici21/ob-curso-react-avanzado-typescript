@@ -1,11 +1,10 @@
-import React from 'react';
 import './App.css';
 import { withServiceWorkerUpdater } from '@3m1/service-worker-updater';
 
 const App = (props) => {
   const { newServiceWorkerDetected, onLoadNewServiceWorkerAccept } = props;
-  const [newItem, setNewItem] = React.useState("");
-  const [items, setItems] = React.useState([]);
+  const [newItem, setNewItem] = useState("");
+  const [items, setItems] = useState([]);
 
   const addNewItem = () => {
     setItems([...items, newItem]);
