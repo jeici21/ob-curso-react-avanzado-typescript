@@ -1,0 +1,28 @@
+h1 {
+    margin: 0;
+}
+
+.App {
+    text-align: center;
+    height: 100vh;
+    transition: 0.3s;
+}
+
+.App.dark {
+    background-color: #292c34;
+    color: white;
+    transition: 0.3s;
+}
+
+.toggleDark {
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dark .toggleDark {
+    background-color: #616855;
+    color: white;
+}
