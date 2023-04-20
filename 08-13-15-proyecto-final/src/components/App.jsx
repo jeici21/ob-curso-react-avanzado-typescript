@@ -14,7 +14,6 @@ const App = () => {
    * Documentación del useEffect
    * Se crea una variable de estado donde se almacena el valor de la configuración en localStorage
    */
-
   useEffect(() => {
     const config = JSON.parse(localStorage.getItem("config"));
     setDark(config.theme);
@@ -23,7 +22,6 @@ const App = () => {
   /**
    * Función para intercambiar la variable de estado light <-> dark
    */
-
   const toggleDark = () => setDark(!dark);
   return (
     <div className={`App ${dark ? "dark" : ""}`}>
