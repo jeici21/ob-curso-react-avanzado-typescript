@@ -29,13 +29,13 @@ const TaskList = () => {
    * Editar el nombre de la nueva tarea
    * @param {*} e - Evento de onChange proveniente de React
    */
-  const editNewItem = (e) => setNewTask(e.target.value);
+  const editNewItem = e => setNewTask(e.target.value);
 
   /**
    * Función para eliminar una tarea en concreto
    * @param {*} index - Índice de la tarea a eliminar
    */
-  const removeItem = (index) => {
+  const removeItem = index => {
     const newtasklist = tasklist.filter((t, i) => i !== index);
     setTasklist(newtasklist);
   };
@@ -44,7 +44,7 @@ const TaskList = () => {
    * Cambia el item por completado <-> pendiente
    * @param {*} index 
    */
-  const toggleCompleteItem = (index) => {
+  const toggleCompleteItem = index => {
     let newTaskList = tasklist;
     newTaskList[index].completed = !newTaskList[index].completed;
     setTasklist([...newTaskList]);
@@ -54,7 +54,7 @@ const TaskList = () => {
    * Añade una nueva tarea cuando se presiona la tecla Enter
    * @param {*} e - Evento onKeyDown que proviene por defecto de React
    */
-  const insertNewItemOnEnterKey = (e) => e.key === "Enter" && addNewTask();
+  const insertNewItemOnEnterKey = e => e.key === "Enter" && addNewTask();
   return (
     <>
       <h1>Task List</h1>

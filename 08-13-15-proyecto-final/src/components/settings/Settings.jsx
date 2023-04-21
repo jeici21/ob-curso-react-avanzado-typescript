@@ -2,8 +2,7 @@ import React from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
 const defaultConfig = {
-  theme: "dark",
-  lang: "es",
+  theme: "dark", lang: "es",
 };
 
 export default function Settings({ toggleDark }) {
@@ -13,12 +12,10 @@ export default function Settings({ toggleDark }) {
    * Función para intercambiar light <-> dark tanto en localStorage como en estado de la aplicación
    * @param {*} event - Evento de click proveniente de React
    */
-
   const toggleMode = (event) => {
     event.preventDefault();
     setConfig((oldConfig) => ({
-      ...oldConfig,
-      theme: oldConfig.theme === "light" ? "dark" : "light",
+      ...oldConfig, theme: oldConfig.theme === "light" ? "dark" : "light",
     }));
     toggleDark();
   };
@@ -27,9 +24,7 @@ export default function Settings({ toggleDark }) {
     <div>
       <h1>APP SETTINGS</h1>
       <p>Actual Config: {config.theme}</p>
-      <button className="btn" type="button" onClick={toggleMode}>
-        Toggle DarkMode
-      </button>
+      <button className="btn" type="button" onClick={toggleMode}>Toggle DarkMode</button>
     </div>
   );
 }

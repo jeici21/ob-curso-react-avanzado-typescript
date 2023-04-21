@@ -12,7 +12,7 @@ type AppProps = { saludo: string, numero?: number }
  */
 function App(props: AppProps) {
   const [darkMode, setDarkMode] = useState(false)
-  const [taskList, setTaskList] = useState<string[]>([])
+  const [taskList, setTaskList] = useState([])
   const [newTask, setNewTask] = useState('')
 
   /**
@@ -20,6 +20,7 @@ function App(props: AppProps) {
    * @returns Cambia el modo de light -> dark y viceversa
    */
   const toggleDark = () => setDarkMode(!darkMode)
+
   /**
    * Esta función cambia el estado newTask a través del input
    * @param e - Evento de change proveniente de react
@@ -31,7 +32,7 @@ function App(props: AppProps) {
    * 
    * @returns Añade una nueva tarea a la lista  de tareas
    */
-  const addNewTask = () => setTaskList([...taskList, newTask])
+  const addNewTask = () => setTaskList([...taskList, newTask as never])
 
   /**
    * 
@@ -48,7 +49,8 @@ function App(props: AppProps) {
         <input style={{ marginRight: 5 }} type="text" value={newTask} onChange={handleChange} />
         <button className='toggleDark' onClick={addNewTask}>Añadir Task</button>
         <div>
-          {taskListEmpty() ? <h3>La lista de tareas está vacía</h3> : taskList.map((t, i) => <p key={i}>{t}</p>)}
+          {taskListEmpty() ? <h3>La lista de tareas está vacía</h3>
+            : taskList.map((t, i) => <p key={i}>{t}</p>)}
         </div>
       </div>
     </div>
