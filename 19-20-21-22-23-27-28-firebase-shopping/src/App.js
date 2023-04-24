@@ -26,6 +26,7 @@ function App() {
   const [route, setRoute] = useState("home")
   const [user, setUser] = useState(null);
   console.log(user);
+  
   return (
     <AppContext.Provider value={{ route, setRoute, user, setUser }}>
       <div className="h-screen">
