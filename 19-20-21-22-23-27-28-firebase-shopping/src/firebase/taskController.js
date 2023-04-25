@@ -3,10 +3,7 @@ import { db } from "./index";
 import { doc, collection, addDoc, setDoc, getDocs, deleteDoc } from "firebase/firestore";
 
 // CRUD - Create, Read, Update, Delete
-
-export const addNewTask = async task => {
-    await addDoc(collection(db, 'tasks'), task);
-}
+export const addNewTask = async task => await addDoc(collection(db, 'tasks'), task);
 
 export const getTasks = async () => {
     const querySnapshot = await getDocs(collection(db, 'tasks'));
@@ -22,14 +19,11 @@ export const getTasks = async () => {
     return tasks;
 }
 
-export const updateTask = async (task) => {
+export const updateTask = async task => {
     // console.log(task);
     await setDoc(doc(db, 'tasks', task.id), {
-        title: task.title,
-        description: task.description
+        title: task.title, description: task.description
     })
 }
 
-export const deleteTask = async (id) => {
-    await deleteDoc(doc(db, 'tasks', id));
-}
+export const deleteTask = async id => await deleteDoc(doc(db, 'tasks', id));
