@@ -52,7 +52,7 @@ const TaskList = ({ showSettings, setShowSettings }) => {
    * Cambia el item por completado <-> pendiente
    * @param {*} index
    */
-  const toggleCompleteItem = (index) => {
+  const toggleCompleteItem = index => {
     // let newTaskList = tasklist;
     let task = tasklist.find(t => t.id === index);
     // Actualizar en la base de datos el estado de la tarea
@@ -71,6 +71,7 @@ const TaskList = ({ showSettings, setShowSettings }) => {
    * @param {*} e - Evento onKeyDown que proviene por defecto de React
    */
   const insertNewItemOnEnterKey = e => e.key === "Enter" && addNewTask();
+
   return (
     <>
       <header className="flex justify-between">

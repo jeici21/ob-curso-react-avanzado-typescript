@@ -1,9 +1,7 @@
 import { addDoc, collection, getDocs, setDoc, doc, deleteDoc } from "firebase/firestore"
 import { db } from "."
 
-export const addTask = task => {
-    return addDoc(collection(db, 'tasks'), task);
-}
+export const addTask = task => addDoc(collection(db, 'tasks'), task);
 
 export const getTasks = async () => {
     const querySnapshot = await getDocs(collection(db, 'tasks'))
@@ -13,10 +11,9 @@ export const getTasks = async () => {
     return tasks;
 }
 
-export const toggleComplete = (task) => {
+export const toggleComplete = task => {
     return setDoc(doc(db, 'tasks', task.id), {
-        ...task,
-        completed: !task.completed
+        ...task, completed: !task.completed
     });
 }
 

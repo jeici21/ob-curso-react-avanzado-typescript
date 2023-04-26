@@ -33,7 +33,4 @@ if (process.env.NODE_ENV === 'production') {
 // Inicializar Firestore
 const db = getFirestore();
 
-export {
-  app,
-  db
-}
+export { app, db }
