@@ -27,9 +27,9 @@ const TaskList = () => {
 
   const initializeTasks = () => getTasks().then(t => setTasks([...t])).catch(e => console.error(e));
 
-  const editTask = (id) => {
+  const editTask = id => {
     setMode("update");
-    const taskToEdit = tasks.find((t) => t.id === id);
+    const taskToEdit = tasks.find(t => t.id === id);
     setTask({ ...taskToEdit });
   };
 
@@ -52,7 +52,7 @@ const TaskList = () => {
           className="border shadow outline-none focus:ring ring-sky-200 rounded px-2 py-1 w-full"
           onChange={(e) => setTask({ ...task, description: e.target.value })} />
         <button onClick={() => mode === "add" ? createNewTask() : updateExistingTask()}
-        className="bg-sky-400 text-white rounded shadow py-1 hover:bg-sky-500 transition font-semibold">
+          className="bg-sky-400 text-white rounded shadow py-1 hover:bg-sky-500 transition font-semibold">
           {mode === "add" ? "Añadir" : "Actualizar"}
         </button>
       </div>
