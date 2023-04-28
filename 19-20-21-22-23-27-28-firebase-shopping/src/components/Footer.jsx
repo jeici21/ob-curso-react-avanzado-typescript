@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { IoHomeSharp } from "react-icons/io5"
 import { BsFillCartFill, BsList } from "react-icons/bs"
 import { AppContext } from '../App'

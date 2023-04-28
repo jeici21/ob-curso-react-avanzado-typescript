@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { GoogleAuthProvider, getAuth, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import toast from "react-hot-toast";
 import { AppContext } from "../App";
@@ -10,6 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser } = useContext(AppContext);
+
   const hazLoginGoogle = () => {
     signInWithPopup(auth, provider).then(result => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -33,6 +34,7 @@ const Login = () => {
       // ...
     });
   };
+
   const hazLoginConEmail = e => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password).then(userCredential => {
