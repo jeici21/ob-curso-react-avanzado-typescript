@@ -12,9 +12,7 @@ export const getTasks = async () => {
 }
 
 export const toggleComplete = task => {
-    return setDoc(doc(db, 'tasks', task.id), {
-        ...task, completed: !task.completed
-    });
+    return setDoc(doc(db, 'tasks', task.id), { ...task, completed: !task.completed });
 }
 
 export const deleteTasks = async () => {

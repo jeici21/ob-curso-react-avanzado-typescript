@@ -12,18 +12,14 @@ export const getTasks = async () => {
     //     console.log(doc.id, ' => ', doc.data())
     // })
 
-    const tasks = querySnapshot.docs.map(doc => {
-        return { ...doc.data(), id: doc.id }
-    })
+    const tasks = querySnapshot.docs.map(doc => { return { ...doc.data(), id: doc.id } })
     // console.log(tasks);
     return tasks;
 }
 
 export const updateTask = async task => {
     // console.log(task);
-    await setDoc(doc(db, 'tasks', task.id), {
-        title: task.title, description: task.description
-    })
+    await setDoc(doc(db, 'tasks', task.id), { title: task.title, description: task.description })
 }
 
 export const deleteTask = async id => await deleteDoc(doc(db, 'tasks', id));

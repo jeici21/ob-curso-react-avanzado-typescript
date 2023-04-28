@@ -30,6 +30,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   app = initializeApp(developmentFirebaseConfig);
 }
+
 // Inicializar Firestore
 const db = getFirestore();
 
